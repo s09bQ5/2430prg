@@ -1,0 +1,22 @@
+TARGETNAME=CC2430Cable
+TARGETTYPE=DRIVER
+
+KMDF_VERSION=1
+
+INF_NAME=CC2430Cable
+
+MISCFILES=$(OBJ_PATH)\$(O)\$(INF_NAME).inf
+
+NTTARGETFILES=
+
+
+C_DEFINES = 
+
+SOURCES=Driver.c  \
+        CableDevice.c  \
+        CableQueue.c \
+        ParPortEnum.c \
+        ParPort.c \
+        CC2430Cable.c
+
+

@@ -1,0 +1,131 @@
+;/*++
+;
+;Copyright (c) 2007 - Otávio Ribeiro
+;
+;Module Name:
+;    cable.INF
+;
+;Abstract:
+;    INF file for installing the Driver Frameworks Cable Driver
+;
+;Installation Notes: 
+;    Using Devcon: Type "devcon install cable.inf root\CC2430Cable" to install
+;
+;--*/
+
+[Version]
+Signature="$Windows NT$"
+Class=CC2430Cable
+ClassGuid={C99A75DD-AA68-43b0-9498-0226B745A0C1}
+Provider=%otavio%
+CatalogFile=CC2430Cable.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+
+;*****************************************
+; CC2430Cable  Install Section
+;*****************************************
+
+[Manufacturer]
+%StdMfg%=Standard,NT$ARCH$
+
+; Following section is meant for Windows 2000 as it 
+; cannot parse decorated model sections
+[Standard]
+;
+; Hw Id is root\CC2430Cable
+;
+%CC2430Cable.DeviceDesc%=CC2430Cable_Device, root\CC2430Cable
+
+; Decorated model section take precedence over undecorated 
+; ones on XP and later.
+[Standard.NT$ARCH$]
+%CC2430Cable.DeviceDesc%=CC2430Cable_Device, root\CC2430Cable
+
+[CC2430Cable_Device.NT]
+CopyFiles=CC2430Cable_Files
+
+[CC2430Cable_Files]
+CC2430Cable.sys
+
+;
+; CLASS sections
+;
+
+; install class (for Win 2000/XP)
+[ClassInstall32]
+AddReg=RegisterCC2430CableClass
+
+; install class (for Win 98/Me)
+[ClassInstall]
+AddReg=RegisterCC2430CableClass
+
+[RegisterCC2430CableClass]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-5
+
+;-------------- Service installation
+[CC2430Cable_Device.NT.Services]
+AddService = CC2430Cable,%SPSVCINST_ASSOCSERVICE%, CC2430Cable_Service_Inst
+
+; -------------- CC2430Cable driver install sections
+[CC2430Cable_Service_Inst]
+DisplayName    = %CC2430Cable.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START 
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\CC2430Cable.sys
+LoadOrderGroup = Parallel Port
+
+[CC2430Cable_Device.NT.HW]
+AddReg=CC2430Cable.HW.AddRef
+
+[CC2430Cable.HW.AddRef]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-5
+
+;
+;--- SOURCE FILE INFORMATION ---
+;
+[SourceDisksNames]
+1 = %DiskId1%,,,
+
+[SourceDisksFiles]
+CC2430Cable.sys  = 1,,
+
+;
+;--- CC2430Cable_Device Coinstaller installation ------
+;
+[DestinationDirs]
+CC2430Cable_Device_CoInstaller_CopyFiles = 11
+
+[CC2430Cable_Device.NT.CoInstallers]
+AddReg=CC2430Cable_Device_CoInstaller_AddReg
+CopyFiles=CC2430Cable_Device_CoInstaller_CopyFiles
+
+[CC2430Cable_Device_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "wdfcoinstaller01005.dll,WdfCoInstaller"
+
+[CC2430Cable_Device_CoInstaller_CopyFiles]
+wdfcoinstaller01005.dll
+
+[SourceDisksFiles]
+wdfcoinstaller01005.dll=1 ; make sure the number matches with SourceDisksNames
+
+[CC2430Cable_Device.NT.Wdf]
+KmdfService =  CC2430Cable, CC2430Cable_wdfsect
+[CC2430Cable_wdfsect]
+KmdfLibraryVersion = 1.5
+
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+otavio = "otavio.eng.br"
+StdMfg = "Otavio.eng.br"
+DiskId1 = "CC2430 Cable interface driver Disk #1"
+CC2430Cable.DeviceDesc = "CC2430 Cable parallel driver"
+CC2430Cable.SVCDESC = "CC2430 Cable parallel service"
+ClassName       = "CC2430Cable"
+

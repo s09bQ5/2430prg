@@ -1,0 +1,132 @@
+# Brazilian Portuguese translation
+# Copyright (C) Otávoi Ribeiro @ 2007
+# This file is distributed under the same license as the PACKAGE 2430prg.
+# FIRST AUTHOR <otavio@otavio.eng.br>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 2430prg\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-03-22 01:56-0300\n"
+"PO-Revision-Date: 2007-12-08 19:59-0200\n"
+"Last-Translator: Otávio Ribeiro <otavio@otavio.eng.br>\n"
+"Language-Team: Brazilian Portuguese <otavio@otavio.eng.br>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../src/main.c:119
+#, c-format
+msgid ""
+"2430prg version 1.0\n"
+"Copywrite (C) Otávio Ribeiro <otavio@otavio.eng.br> @ 2007\n"
+"\n"
+msgstr ""
+
+#: ../src/main.c:128
+#, c-format
+msgid ""
+"2430prg [options]... FILE\n"
+"Copywrite (C) Otávio Ribeiro <otavio@otavio.eng.br> @ 2007\n"
+"\n"
+"-d\t\tOverwrite the default parallel port device to use\n"
+"-e\t\tbulk erase the device before programming it\n"
+"-p\t\tafter programming the device protect it from reading\n"
+"-c\t\tjust check the device without read or write on it\n"
+"-v\t\tshow the version of this software\n"
+"-h\t\tshow this message\n"
+"\n"
+msgstr ""
+
+#: ../src/main.c:187
+#, c-format
+msgid ""
+"the option %s is not a valid option. Use --help to see all available "
+"options.\n"
+msgstr ""
+
+#: ../src/main.c:192
+#, c-format
+msgid ""
+"the option %s requires an argument. Use --help to see all available "
+"options.\n"
+msgstr ""
+
+#: ../src/main.c:222
+#, c-format
+msgid "unknown parameter %s. Ignored...\n"
+msgstr ""
+
+#: ../src/main.c:232
+#, c-format
+msgid ""
+"The options --e and --p are incompatible with --c. Use --help to see how to "
+"use this software\n"
+msgstr ""
+
+#: ../src/main.c:237
+#, c-format
+msgid ""
+"You must provide a file name. Use --help to see how to use this software.\n"
+msgstr ""
+
+#: ../src/main.c:281
+#, c-format
+msgid "2430prg initializing\n"
+msgstr "2430prg Inicializando\n"
+
+#: ../src/main.c:287
+#, c-format
+msgid "error opening parallel port\n"
+msgstr "erro ao abrir a porta paralela\n"
+
+#: ../src/main.c:291
+#, c-format
+msgid "error setting parallel port mode to byte mode\n"
+msgstr ""
+"erro ao tentar ajustar modo da porta paralela para transferência de bytes\n"
+
+#: ../src/main.c:297
+#, c-format
+msgid "error detecting the CC2430 cable\n"
+msgstr "erro ao tentar localizar o cabo paralelo CC2430\n"
+
+#: ../src/main.c:303
+#, c-format
+msgid "CC2430 cable has been found\n"
+msgstr "cabo paralelo CC2430 foi encontrado\n"
+
+#: ../src/main.c:305
+#, c-format
+msgid "CC2430 cable version 1.0 found\n"
+msgstr "cabo paralelo CC2430 versão 1.0 encontrado\n"
+
+#: ../src/main.c:307
+#, c-format
+msgid "CC2430 cable not connected\n"
+msgstr "cabo CC2430 não está conectado\n"
+
+#: ../src/main.c:311
+#, c-format
+msgid "Detecting CC2430 device type. Please Wait...\n"
+msgstr "Detectando tipo do dispositivo CC2430. Por favor, aguarde...\n"
+
+#: ../src/main.c:315
+#, c-format
+msgid "error entering in debug mode\n"
+msgstr ""
+
+#: ../src/main.c:321
+#, fuzzy, c-format
+msgid "error retrieving chip information\n"
+msgstr "erro ao tentar liberar porta paralela\n"
+
+#: ../src/main.c:328
+#, fuzzy, c-format
+msgid "error reading chip status\n"
+msgstr "erro ao tentar liberar porta paralela\n"
+
+#: ../src/main.c:335
+#, c-format
+msgid "error freeing parallel port\n"
+msgstr "erro ao tentar liberar porta paralela\n"
