@@ -28,6 +28,7 @@
 #include <limits.h>
 #include <signal.h>
 #include <sys/resource.h>
+#include <locale.h>
 
 #include "config.h"
 #include "driver.h"
