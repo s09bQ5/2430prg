@@ -29,9 +29,11 @@ IT_PROG_INTLTOOL([0.35.0])
 
 AM_PROG_LIBTOOL
 
-PKG_CHECK_MODULES(GTK, [gtk+-2.0 >= 2.8 libglade-2.0 >= 2.6.0 ])
-AC_SUBST(GTK_CFLAGS)
-AC_SUBST(GTK_LIBS)
+dnl *********************************************************************
+dnl PKG_CHECK_MODULES(GTK, [gtk+-2.0 >= 2.8 libglade-2.0 >= 2.6.0 ])
+dnl AC_SUBST(GTK_CFLAGS)
+dnl AC_SUBST(GTK_LIBS)
+dnl *********************************************************************
 
 dnl CFLAGS="-O2"
 dnl AC_SUBST(CFLAGS)
